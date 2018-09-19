@@ -13,6 +13,7 @@ class Topics(models.Model):
 
 	class Meta():
 		db_table = 'topics'
+		verbose_name_plural = 'Topics'
 
 class TopicContributors(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete="CASCADE")
@@ -22,6 +23,7 @@ class TopicContributors(models.Model):
 
 	class Meta():
 		db_table = 'topic_contributors'
+		verbose_name_plural = 'Topic Contributors'
 
 class Answers(models.Model):
 	topic = models.ForeignKey('Topics', on_delete="CASCADE");
@@ -32,6 +34,7 @@ class Answers(models.Model):
 
 	class Meta():
 		db_table = 'answers'
+		verbose_name_plural = 'Answers'
 
 class AnswerVotes(models.Model):
 	VOTE_TYPES = (
@@ -45,3 +48,4 @@ class AnswerVotes(models.Model):
 
 	class Meta():
 		db_table = 'answer_votes'
+		verbose_name_plural = 'Answer Votes'
