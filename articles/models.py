@@ -32,7 +32,7 @@ class ArticleVotes(models.Model):
 		verbose_name_plural = 'Article Votes'
 
 	def __str__(self):
-		return self.user
+		return self.get_vote_type_display()
 
 class ArticleComments(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
