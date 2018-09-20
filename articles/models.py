@@ -66,3 +66,4 @@ class ArticleCommentVotes(models.Model):
 
 	def __str__(self):
 		return self.get_vote_type_display()
+
