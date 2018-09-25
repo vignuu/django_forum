@@ -9,13 +9,15 @@ def loginUser(request):
 		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
 		if user is not None:
 			login(request, user)
-			return HttpResponseRedirect('/admin/')
+			return HttpResponseRedirect('/articles/')
 		else:
 			data = {
 			'errors' : ['invalid username/password']
 			}
 			return render(request, 'accounts/login.html', data)
 	else:
+		if request.user.is_authenticated:
+			return HttpResponseRedirect('/articles/')
 		return render(request, 'accounts/login.html');
 
 def logoutUser(request):
