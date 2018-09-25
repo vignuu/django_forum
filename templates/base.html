@@ -1,9 +1,24 @@
-{% include 'base/header.html' %}
 
-{% include 'sidebar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Django Forum | 
+		{% block title %}
+		Home
+		{% endblock %}
+	</title>
+	{% include 'base/header-content.html' %}
+</head>
+<body class="home blog">
 
-{% block content %}
+	{% include 'sidebar.html' %}
 
-{% endblock %}
+	{% block content %}
 
-{% include 'base/footer.html' %}
+	{% endblock %}
+
+	{% include 'base/footer-content.html' %}
+
+</body>
+</html>
