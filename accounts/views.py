@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -9,7 +11,10 @@ def loginUser(request):
 		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
 		if user is not None:
 			login(request, user)
-			return HttpResponseRedirect('/articles/')
+			if 'next' in request.POST:
+				return redirect(request.POST.get('next'))
+			else:
+				return HttpResponseRedirect('/articles/')
 		else:
 			data = {
 			'errors' : ['invalid username/password']
@@ -23,3 +28,4 @@ def loginUser(request):
 def logoutUser(request):
 	logout(request)
 	return HttpResponseRedirect('/accounts/login/')
+
