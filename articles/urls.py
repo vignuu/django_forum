@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^contact/$',views.contact,name='contact'),
     url(r'^sample/$',views.sample,name='sample'),
     url(r'^scroll/$',views.scroll,name='scroll'),
+    url(r'^single/$',views.single,name='single'),
 ]
 
 

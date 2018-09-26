@@ -24,3 +24,7 @@ def sample(request):
 @login_required(login_url='accounts:login')
 def scroll(request):
 	return render(request,'scroll.html')
+
+@login_required(login_url='accounts:single')
+def single(request):
+	return render(request,'single.html')
