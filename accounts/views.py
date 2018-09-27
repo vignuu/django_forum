@@ -10,6 +10,7 @@ def loginUser(request):
 	if request.method == 'POST':
 		user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
 		if user is not None:
+			request.session.set_expiry(86400)
 			login(request, user)
 			if 'next' in request.POST:
 				return redirect(request.POST.get('next'))
