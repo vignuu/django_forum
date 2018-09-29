@@ -1,5 +1,6 @@
 {% load static %}
 <!-- Left Sidebar -->
+
 <div id="sidebar" class="sidebar">
     <div class="menu-left-part">
         <div class="search-holder">
@@ -15,10 +16,10 @@
         </div>
         <nav id="header-main-menu">
             <ul class="main-menu sm sm-clean">
-                <li><a href="" class="current">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="scroll.html">Scroll</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{% url 'articles:index' %}" class="current">Home</a></li>
+                <li><a href="{% url 'articles:about' %}">About</a></li>
+                <li><a href="{% url 'articles:scroll' %}">Scroll</a></li>
+                <li><a href="{% url 'articles:contact' %}">Contact</a></li>
                 <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
             </ul>
         </nav>
@@ -30,7 +31,7 @@
     </div>
     <div class="menu-right-part">
         <div class="logo-holder">
-            <a href="index.html">
+            <a href="{% url 'articles:index' %}">
                 <img src="{% static 'images/logo.png' %}" alt="Suppablog WP">
             </a>
         </div>
