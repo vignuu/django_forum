@@ -1,5 +1,5 @@
 from django.contrib import admin
-from articles.models import Articles, ArticleVotes, ArticleComments, ArticleCommentVotes
+from articles.models import Articles, ArticleVotes, ArticleComments, ArticleCommentVotes, Categories
 
 # Register your models here.
 
@@ -27,4 +27,11 @@ class ArticleCommentsAdmin(admin.ModelAdmin):
 @admin.register(ArticleCommentVotes)
 class ArticleCommentVotes(admin.ModelAdmin):
 	list_display = ['user', 'comment', 'vote_type']
+	list_per_page = 10
+
+@admin.register(Categories)
+class Categories(admin.ModelAdmin):
+	list_display = ['category_title']
+	list_filter = ['category_title']
+	search_fields = ['category_title']
 	list_per_page = 10
