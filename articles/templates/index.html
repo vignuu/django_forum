@@ -30,7 +30,7 @@ Articles
                                     <div class="cat-links">
                                         <ul>
                                             <li>
-                                                <a href="#">{{articles.title}}</a>
+                                                <a href="#">{{articles.categorie_id}}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -82,7 +82,24 @@ Articles
                     <textarea name="article"></textarea>
                     <button type="submit" class="btn btn-outline-success">Success</button>
                 </form>
+                <div class="pagination">
+                <span class="step-links">
+                    {% if article.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ article.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ article.number }} of {{ article.paginator.num_pages }}.
+                    </span>
+
+                    {% if article.has_next %}
+                        <a href="?page={{ article.next_page_number }}">next</a>
+                        <a href="?page={{ article.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div> 
             </div>  
+               
         
     {%  endblock %}
-

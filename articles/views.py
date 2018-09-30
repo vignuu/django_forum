@@ -16,7 +16,7 @@ def index(request):
 		form.save()
 		return redirect('articles:index')
 	article = Articles.objects.all().order_by('updated_at')
-	paginator = Paginator(article, 25) # Show 25 contacts per page
+	paginator = Paginator(article, 1) # Show 25 contacts per page
 	page = request.GET.get('page')
 	article = paginator.get_page(page)
 	return render(request,'index.html',{'article' : article})
