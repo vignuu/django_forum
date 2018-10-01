@@ -39,7 +39,7 @@ Articles
                                         <a href="{% url 'articles:single' %}">{{articles.title}}</a>
                                     </h2>
                                     <div class="excerpt">
-                                        {{articles.article|striptags}}<a class="read-more" href="{% url 'articles:single' %}"></a>
+                                        {{articles.article|safe}}<a class="read-more" href="{% url 'articles:single' %}"></a>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
