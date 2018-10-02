@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Topic | New
+{% endblock %}
+
+{% block content %}
+<h1>
+	<b>
+		NEW TOPIC
+	</b>
+</h1>
+<!-- 
+<p>
+	A topic can be anything from a question to a topic for people to answer. A topic can be private	or public
+</p> -->
+{% if errors %}
+{% for error in errors %}
+<div class="alert alert-danger">
+	<strong>Error!</strong> {{ error }}
+</div>
+{% endfor %}
+{% endif %}
+
+<form method="post" action="{% url 'topics:new' %}">
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input type="text" class="form-control" name="title" id="title" placeholder="Title">
+	</div>
+	
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea class="form-control" id="description" name="description" rows="3"></textarea>
+	</div>
+
+	<div class="form-group">
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" name="is_private" id="is_private">
+			<label class="form-check-label" for="is_private">
+				Is Private
+			</label>
+		</div>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Add Topic</button>
+</form>
+
+{% endblock %}

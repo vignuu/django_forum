@@ -31,10 +31,10 @@ body a:hover
     color: #0697AE;
 }
 
-input, textarea, select 
+/*input, textarea, select 
 {
     -webkit-appearance: none;
-}
+}*/
 
 ::-moz-selection 
 { 

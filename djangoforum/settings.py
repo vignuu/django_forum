@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
     'topics.apps.TopicsConfig',
     'accounts.apps.AccountsConfig',
+    'feed.apps.FeedConfig'
 ]
 
 MIDDLEWARE = [

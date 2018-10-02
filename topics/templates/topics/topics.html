@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Topic | New
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div id="content" class="site-content center-relative">
+    <div class="single-post-wrapper content-1070 center-relative" >
+
+        {% for topic in topics %}
+        <article class="center-relative" style="background-color: white; border: 15px solid #f8f6f9;">
+            <!-- <h1 class="entry-title">
+                I like to reinvent myself
+            </h1> -->
+            <div class="post-info content-660 center-relative">
+                <br>
+
+                <div class="cat-links">
+                    <ul>
+                        <li><a href="#">{{ topic.user }}</a></li>
+                    </ul>
+                </div>
+                <div class="entry-date published">{{ topic.created_at | date:"F d, Y" }}</div>
+                <div class="clear"></div>
+                <h4><b>{{ topic.title }}</b></h4>
+            </div>
+
+            <div class="entry-content">
+                <div class="content-wrap content-660 center-relative">
+                    {% if topic.answers_set.first %}
+                    <p>{{ topic.answers_set.first.answer | truncatewords:2 }} <a href="#" class="fa fa-angle-double-right"></a></p>
+                    {% else %}
+                    <p>No answers till now</p>
+                    {% endif %}
+                    <br>
+                    <div class="clear"></div>
+                </div>
+                <div class="post-full-width">
+                    <script>
+                        var slider1_speed = "500";
+                        var slider1_auto = "true";
+                        var slider1_pagination = "true";
+                        var slider1_hover = "true";
+                    </script>
+                    <div class="image-slider-wrapper">
+                        <div class="caroufredsel_wrapper">
+                            <ul id="slider1" class="image-slider slides center-text">
+                                <li><img src="demo-images/01_blogpost_galery.jpg" alt=""></li>
+                                <li><img src="demo-images/02_blogpost_galery.jpg" alt=""></li>
+                                <li><img src="demo-images/03_blogpost_galery.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                        <div class="slider1_pagination carousel_pagination left"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="content-wrap content-660 center-relative ">
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if topics.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ topics.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ topics.number }} of {{ topics.paginator.num_pages }}.
+        </span>
+
+        {% if topics.has_next %}
+        <a href="?page={{ topics.next_page_number }}">next</a>
+        <a href="?page={{ topics.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

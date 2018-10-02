@@ -1,13 +1,13 @@
 from django.db import models
 from django.conf import settings
 from shortcodes.shortcodes import ShortCodes
-
+from feed.models import CategoriesMaster
 # Create your models here.
 
 class Topics(models.Model):
 	title = models.CharField(max_length=500)
 	description = models.TextField(null=True)
-	is_private = models.BooleanField(default=False)
+	is_private = models.BooleanField(default=0)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -85,3 +85,13 @@ class AnswerCommentVotes(models.Model):
 
 	def __str__(self):
 		return self.vote_type
+
+class TopicCategories(models.Model):
+	topic = models.ForeignKey('Topics', on_delete=models.CASCADE)
+	category = models.ForeignKey('feed.CategoriesMaster', on_delete=models.CASCADE)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+	class Meta():
+		db_table = 'topic_categories'
+		verbose_name_plural = 'Topic Categories'

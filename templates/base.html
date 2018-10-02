@@ -8,8 +8,12 @@
 		{% endblock %}
 	</title>
 	{% include 'base/header-content.html' %}
+
+	{% block header %}
+	{% endblock %}
 </head>
 <body class="home blog">
+<div class="container">
 
 	{% include 'sidebar.html' %}
 
@@ -19,5 +23,9 @@
 
 	{% include 'base/footer-content.html' %}
 
+	{% block footer %}
+	{% endblock %}
+
+</div>
 </body>
 </html>
