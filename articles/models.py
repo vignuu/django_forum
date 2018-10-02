@@ -3,6 +3,7 @@ from django.conf import settings
 # Create your models here.
 
 class Articles(models.Model):
+	categorie_id = models.ForeignKey('Categories',on_delete=models.CASCADE,null=True)
 	title = models.CharField(max_length=200)
 	article = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -66,4 +67,16 @@ class ArticleCommentVotes(models.Model):
 
 	def __str__(self):
 		return self.get_vote_type_display()
+
+class Categories(models.Model):
+	category_title = models.CharField(max_length=200)
+	created_at     = models.DateTimeField(auto_now_add=True)
+	updated_at 	   = models.DateTimeField(auto_now=True)
+
+	class meta():
+		db_table = 'categories'
+		verbose_name_plural = 'Categories'
+
+	def __str__(self):
+		return self.category_title		
 
