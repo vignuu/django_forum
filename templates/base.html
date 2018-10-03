@@ -13,19 +13,19 @@
 	{% endblock %}
 </head>
 <body class="home blog">
-<div class="container">
 
 	{% include 'sidebar.html' %}
 
+<div class="container" style="max-width: 1000px;">
 	{% block content %}
 
 	{% endblock %}
+</div>
 
 	{% include 'base/footer-content.html' %}
 
 	{% block footer %}
 	{% endblock %}
 
-</div>
 </body>
 </html>

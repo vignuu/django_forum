@@ -15,6 +15,7 @@ class Topics(models.Model):
 	class Meta():
 		db_table = 'topics'
 		verbose_name_plural = 'Topics'
+		ordering = ['-created_at']
 
 	def __str__(self):
 		return self.title
@@ -28,6 +29,7 @@ class TopicContributors(models.Model):
 	class Meta():
 		db_table = 'topic_contributors'
 		verbose_name_plural = 'Topic Contributors'
+		ordering = ['-created_at']
 
 class Answers(models.Model):
 	topic = models.ForeignKey('Topics', on_delete=models.CASCADE);
