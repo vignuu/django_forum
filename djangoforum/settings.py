@@ -143,7 +143,7 @@ STATICFILES_DIRS = [
 # Email configuration
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.elasticemail.com'
+EMAIL_HOST_USER = 'mr.vishnu37@gmail.com'
+EMAIL_HOST_PASSWORD = '12a780f0-633c-4610-b573-0a53bedf445f'
+EMAIL_PORT = 2525
