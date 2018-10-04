@@ -3,49 +3,54 @@
 {% block title %}
 Articles
 {% endblock %}
+
+{% block header %}
+<script type='text/javascript' src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc'></script>
 <script type='text/javascript' src="{% static 'js/tinymce.js' %}"></script>
-    {% block content %}
-        <table class="doc-loader">
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="{% static 'images/ajax-document-loader.gif' %}" alt="Loading...">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+{% endblock %}
 
-        <!-- Left Sidebar -->
-       
-        <!-- Home Content -->
-        
-            <div id="content" class="site-content">
-                <div id="blog-wrapper">
-                    <div class="blog-holder center-relative">
+{% block content %}
+<table class="doc-loader">
+    <tbody>
+        <tr>
+            <td>
+                <img src="{% static 'images/ajax-document-loader.gif' %}" alt="Loading...">
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-                        {% for articles in article %}
-                        <article id="post-1" class="blog-item-holder featured-post">
-                            <div class="entry-content relative">
-                                <div class="content-1170 center-relative">
-                                    <div class="cat-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#">{{articles.categorie_id}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-date published">{{articles.updated_at}}</div>
-                                    <h2 class="entry-title">
-                                        <a href="{% url 'articles:single' %}">{{articles.title}}</a>
-                                    </h2>
-                                    <div class="excerpt">
-                                        {{articles.article|safe}}<a class="read-more" href="{% url 'articles:single' %}"></a>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </article>
-                        {% endfor %}
+<!-- Left Sidebar -->
+
+<!-- Home Content -->
+
+<div id="content" class="site-content">
+    <div id="blog-wrapper">
+        <div class="blog-holder center-relative">
+
+            {% for articles in article %}
+            <article id="post-1" class="blog-item-holder featured-post">
+                <div class="entry-content relative">
+                    <div class="content-1170 center-relative">
+                        <div class="cat-links">
+                            <ul>
+                                <li>
+                                    <a href="#">{{articles.categorie_id}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="entry-date published">{{articles.updated_at}}</div>
+                        <h2 class="entry-title">
+                            <a href="{% url 'articles:single' %}">{{articles.title}}</a>
+                        </h2>
+                        <div class="excerpt">
+                            {{articles.article|safe}}<a class="read-more" href="{% url 'articles:single' %}"></a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
 
                 <!--         <article id="post-2" class="blog-item-holder">
                             <div class="entry-content relative">
@@ -65,7 +70,7 @@ Articles
                                 </div>
                             </div>
                         </article> -->    
-        
+
 
 
                     </div>
@@ -83,23 +88,23 @@ Articles
                     <button type="submit" class="btn btn-outline-success">Success</button>
                 </form>
                 <div class="pagination">
-                <span class="step-links">
-                    {% if article.has_previous %}
+                    <span class="step-links">
+                        {% if article.has_previous %}
                         <a href="?page=1">&laquo; first</a>
                         <a href="?page={{ article.previous_page_number }}">previous</a>
-                    {% endif %}
+                        {% endif %}
 
-                    <span class="current">
-                        Page {{ article.number }} of {{ article.paginator.num_pages }}.
-                    </span>
+                        <span class="current">
+                            Page {{ article.number }} of {{ article.paginator.num_pages }}.
+                        </span>
 
-                    {% if article.has_next %}
+                        {% if article.has_next %}
                         <a href="?page={{ article.next_page_number }}">next</a>
                         <a href="?page={{ article.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div> 
+                        {% endif %}
+                    </span>
+                </div> 
             </div>  
-               
-        
-    {%  endblock %}
+
+
+            {%  endblock %}

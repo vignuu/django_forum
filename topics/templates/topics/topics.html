@@ -30,14 +30,14 @@ Topic | New
             <div class="entry-content">
                 <div class="content-wrap content-660 center-relative">
                     {% if topic.answers_set.first %}
-                    <p>{{ topic.answers_set.first.answer | truncatewords:2 }} <a href="#" class="fa fa-angle-double-right"></a></p>
+                    <p>{{ topic.answers_set.first.answer | truncatewords:25 }} <a href="#" class="read-more"></a></p>
                     {% else %}
                     <p>No answers till now</p>
                     {% endif %}
                     <br>
                     <div class="clear"></div>
                 </div>
-                <div class="post-full-width">
+                <!-- <div class="post-full-width">
                     <script>
                         var slider1_speed = "500";
                         var slider1_auto = "true";
@@ -56,7 +56,7 @@ Topic | New
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
-                </div>
+                </div> -->
                 <div class="content-wrap content-660 center-relative ">
 
                 </div>
